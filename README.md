@@ -1,4 +1,4 @@
-# Project of Data Visualization (COM-480)
+# Project of Data Visualization (COM-480) - SteamViz
 
 | Student's name | SCIPER |
 | -------------- | ------ |
@@ -7,6 +7,9 @@
 | Thai-Nam Hoang | 369259 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
+
+## REMARK:
+#### The data used for this project exceeds the amount allowed by the COM-480 GitHub group. As such, we have uploaded our data separately to https://github.com/Tsathogguaa/project-2024-SteamViz-Data which is a public repository of one of our members, Derin Arda Alpay. This action has been made after inquiring and validating through the Ed Forum with a TA, under post #43 named "Git LFS". If there is any trouble accessing the data or the repository as a whole, please send a direct email to derin.alpay@epfl.ch.
 
 ## Milestone 1 (29th March, 5pm)
 
