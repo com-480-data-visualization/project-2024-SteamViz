@@ -4,7 +4,7 @@
 | -------------- | ------ |
 | Derin Arda Alpay | 300758 |
 | Ahmad Bilal Kakar | 296729 |
-| | |
+| Thai-Nam Hoang | 369259 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
