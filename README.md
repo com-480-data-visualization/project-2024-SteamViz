@@ -22,11 +22,11 @@ Please, fill the following sections about your project.
 
 ### Dataset
 
-> Please refer to the report(.pdf file) in the repo.
+> Please refer to the report(SteamViz_M1.pdf file) in the repo.
 
 ### Problematic
 
-> Please refer to the report(.pdf file) in the repo.
+> Please refer to the report(SteamViz_M1.pdf file) in the repo.
 
 ### Exploratory Data Analysis
 
@@ -36,7 +36,7 @@ Please, fill the following sections about your project.
 ### Related work
 
 
-> Please refer to the report(.pdf file) in the repo.
+> Please refer to the report(SteamViz_M1.pdf file) in the repo.
 
 ## Milestone 2 (26th April, 5pm)
 
