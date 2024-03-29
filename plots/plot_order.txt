@@ -1,0 +1,11 @@
+price_plot
+genre_plot
+av2w_plot
+av4e_plot
+med2w_plot
+med4e_plot
+ccu_plot
+estown_plot
+pos_plot
+neg_plot
+posneg_plot
