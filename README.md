@@ -31,7 +31,7 @@ Please, fill the following sections about your project.
 ### Exploratory Data Analysis
 
 > Please refer to the EDA.ipynb notebook in the repo.
-> #### Remark: We use an interactive plotting package, meaning if you preview the notebook on Github it won't show. However, if you open the notebook on your own end, it works fine. As a precaution, you may also find the plots in the "plots" folder of our repo.
+> #### Remark: We use an interactive plotting package, meaning if you preview the notebook on Github it won't show the figures. However, if you open the notebook on your own end, it works fine. As a precaution, you may also find the plots in the "plots" folder of our repo as pdf files, along with a plot_order.txt file telling in which order the plots appear in EDA.ipynb if needed.
 
 ### Related work
 
