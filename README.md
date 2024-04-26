@@ -40,7 +40,8 @@ Please, fill the following sections about your project.
 
 ## Milestone 2 (26th April, 5pm)
 
-Our website can be found on: https://com-480-data-visualization.github.io/project-2024-SteamViz/
+Our skeleton website can be found on: https://com-480-data-visualization.github.io/project-2024-SteamViz/
+Our report can be found on our repo, root, as "SteamViz_M2.pdf".
 
 **10% of the final grade**
 
