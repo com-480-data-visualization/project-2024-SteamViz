@@ -27,23 +27,14 @@
 	<h1> Game Addiction </h1>
 </header>
 
-<main class="width-limited">
-	<h4>What do we do here?</h4>
-	<p>
-		We'll be showing visualizations specific to game addictions, e.g metrics, analytics and data
-		that center on individual games rather than their genres, subgenres, themes, etc.
-	</p>
-
-	<h4>What will it look like?</h4>
-	<p>Short answer, just like below:</p>
-	<img src="res/games_addictivity_page.png" width="640" />
-	<p>Long answer: It's subject to change.</p>
-	<p>We may modify the type of our graph, or introduce other interactibility elements such as
-		more plots, subplots, explanation paragraphs, etc. For now, however, the image above is 
-		our main plan.
-	</p>
-	
-</main>
+<div id="plots">
+	<div id="bubbles"></div>
+	<div id = "table">
+		<h4>Please select a category to see the top 5</h4>
+	</div>
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="gameAddictivity.js"></script>
+</div>
 
 <footer class="contact-us">
 	<div class="contact-header">
