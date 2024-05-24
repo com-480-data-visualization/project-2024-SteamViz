@@ -315,4 +315,28 @@ ol {
 	margin: 0;
 }
 
+#hist_est_own{
+	width: 100%;
+	height: 50vh;
+	background-color: antiquewhite;
+}
+
+#hist_user_score{
+	width: 100%;
+	height: 50vh;
+	background-color: antiquewhite;
+}
+
+#hist_price{
+	width: 100%;
+	height: 50vh;
+	background-color: antiquewhite;
+}
+
+#hist_peak_ccu{
+	width: 100%;
+	height: 50vh;
+	background-color: antiquewhite;
+}
+
 
