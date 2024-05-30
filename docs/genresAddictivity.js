@@ -26,7 +26,7 @@
         .force("x", d3.forceX(dimensions.chartWidth / 2).strength(0.05))
         .force("y", d3.forceY(dimensions.chartHeight / 2).strength(0.05))
         .force("collide", d3.forceCollide(function(d) {
-            return scaleRadius(d.radius) + 5;
+            return scaleRadius(d.radius) * 1.5 + 8;
         }));
 
     var maxPlaytime;
@@ -44,17 +44,50 @@
         maxPlaytime = d3.max(datapoints, d => +d.average_play_hours_per_day);
         var selectedGenre = null;
 
+        var bubble_grad = chartSvg.append("defs").append("linearGradient")
+            .attr("id", "lin-grad")
+            .attr("x1", "0%")
+            .attr("x2", "100%")
+            .attr("y1", "0%")
+            .attr("y2", "100%");
+
+        bubble_grad.append("stop")
+            .attr("offset", "0%")
+            .style("stop-color", "#00ADEE")
+            .style("stop-opacity", 1);
+
+        bubble_grad.append("stop")
+            .attr("offset", "100%")
+            .style("stop-color", "#000000")
+            .style("stop-opacity", 1)
+
+        function dragStarted (event, d) {
+            if(!event.active) simulation.alphaTarget(.03).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged (event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragEnded (event, d) {
+            d.fx = null;
+            d.fy = null;
+        }
+
         var circle = chartSvg.selectAll(".genres")
             .data(genreData)
             .enter().append("circle")
             .attr("class", "genres")
             .attr("r", function(d) {
-                return scaleRadius(d.radius); // Use 90th percentile of playtime as radius
+                return scaleRadius(d.radius)*1.5; // Use 90th percentile of playtime as radius
             })
-            .style("fill", "orange")
+            .style("fill", "url(#lin-grad)")
             .on("click", function(event, d) {
                 if (selectedGenre) {
-                    selectedGenre.style("fill", "orange");
+                    selectedGenre.style("fill", "url(#lin-grad)");
                 }
                 selectedGenre = d3.select(this).style("fill", "#69b3a2");
                 showHistogram(d);
@@ -62,13 +95,19 @@
             .on("mouseover", function(event, d) {
                 d3.select(this).transition()
                     .duration(200)
-                    .attr("r", scaleRadius(d.radius) * 1.1); // Scale up the radius by 10%
+                    .attr("r", scaleRadius(d.radius) * 1.5 * 1.1); // Scale up the radius by 10%
             })
             .on("mouseout", function(event, d) {
                 d3.select(this).transition()
                     .duration(200)
-                    .attr("r", scaleRadius(d.radius)); // Scale back to original size
-            });
+                    .attr("r", scaleRadius(d.radius) * 1.5); // Scale back to original size
+            })
+            .call(
+                d3.drag()
+                .on("start", dragStarted)
+                .on("drag", dragged)
+                .on("end", dragEnded)
+            );
 
         var text = chartSvg.selectAll(".genre-text")
             .data(genreData)
@@ -76,6 +115,12 @@
             .attr("class", "genre-text")
             .attr("text-anchor", "middle")
             .attr("dy", ".35em")
+            .attr("font-size", function (d) {
+                const size = scaleRadius(d.radius) * 0.02;
+                return size + "em";
+            })
+            .attr("font-family", "Noto Sans")
+            .attr("fill", "white")
             .text(function(d) {
                 return d.genre;
             });
@@ -118,30 +163,32 @@
             var playtimes = d.values.map(d => +d.average_play_hours_per_day);
 
             var x = d3.scaleLinear()
-                .domain([0, maxPlaytime]) // Fixed x-axis domain based on maximum playtime
+                .domain([0, 16]) // Fixed x-axis domain based on maximum playtime
                 .range([0, width]);
 
             var histogram = d3.histogram()
                 .value(d => d)
                 .domain(x.domain())
-                .thresholds(30); // Fixed number of bins
+                .thresholds(15); // Fixed number of bins
 
             var bins = histogram(playtimes);
 
             var y = d3.scaleLog()
-                .domain([1, 10000]) // Fixed y-axis domain
+                .domain([1, 1000]) // Fixed y-axis domain
                 .range([height, 0])
                 .nice();
 
             svg.append("g")
                 .attr("transform", "translate(0," + height + ")")
-                .call(d3.axisBottom(x));
+                .call(d3.axisBottom(x))
+                .style("color", "#dcdedf");
 
             svg.append("g")
                 .call(d3.axisLeft(y)
-                    .ticks(10, d3.format(",d"))
-                    .tickValues([1, 10, 100, 1000, 10000])
-                );
+                    .ticks(4, d3.format(",d"))
+                    .tickValues([1, 10, 100, 1000])
+                )
+                .style("color", "#dcdedf");
 
             svg.selectAll("rect")
                 .data(bins)
@@ -158,12 +205,16 @@
                 .attr("text-anchor", "middle")
                 .attr("x", width / 2)
                 .attr("y", height + 40)
+                .attr("fill", "#dcdedf")
+                .attr("font-family", "Noto Sans")
                 .text("Average Play Hours Per Day");
 
             // Add Y axis label with distance from y-ticks
             svg.append("text")
                 .attr("class", "y label")
                 .attr("text-anchor", "middle")
+                .attr("fill", "#dcdedf")
+                .attr("font-family", "Noto Sans")
                 .attr("x", -height / 2)
                 .attr("y", -50)
                 .attr("transform", "rotate(-90)")
@@ -174,6 +225,8 @@
                 .attr("x", (width / 2))
                 .attr("y", 0 - (margin.top / 2))
                 .attr("text-anchor", "middle")
+                .attr("fill", "#dcdedf")
+                .attr("font-family", "Noto Sans")
                 .style("font-size", "16px")
                 .style("text-decoration", "underline")
                 .text(d.genre + " Playtime Distribution");
