@@ -54,7 +54,7 @@ Our report can be found on our repo, root, as "SteamViz_M2.pdf".
 
 No need to do any setup. You can simply go to the link mentioned above to visit our website.
 
-Reproducibility-wise, you can run the notebooks and put the resulting csv files into docs/ and it should work. You may need several python packages, namely the ones used in M1 and M2, nothing new. Named, they are:
+Reproducibility-wise, get the data, put it under the name "games.csv" inside data/, then you can run the notebooks and put the resulting csv files from data/ into docs/ and it should work. You may need several python packages, namely the ones used in M1 and M2, nothing new. Named, they are:
 - Numpy
 - Pandas
 - Matplotlib
