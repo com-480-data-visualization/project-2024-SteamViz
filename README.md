@@ -62,6 +62,8 @@ Reproducibility-wise, get the data, put it under the name "games.csv" inside dat
 
 Process book and screencast can be found on the repo root, under the names SteamVizProcessBook and SteamVizScreencast.
 
+**If initially the bubbles aren't centered, refresh the page and they should work. You could alternatively click on a bubble, and they should start floating to the center, but refreshing is easier.**
+
 Please contact derin.alpay@epfl.ch in case of a need for more clear instructions or any other questions.
 
 
