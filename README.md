@@ -52,6 +52,14 @@ Our report can be found on our repo, root, as "SteamViz_M2.pdf".
 
 **80% of the final grade**
 
+No need to do any setup. You can simply go to the link mentioned above to visit our website.
+
+Reproducibility-wise, you can run the notebooks and put the resulting csv files into docs/ and it should work. You may need several python packages, namely the ones used in M! and M2, nothing new.
+
+Process book and screencast can be found on the repo root, under the names SteamVizProcessBook and SteamVizScreencast.
+
+Please contact derin.alpay@epfl.ch in case of a need for more clear instructions or any other questions.
+
 
 ## Late policy
 
